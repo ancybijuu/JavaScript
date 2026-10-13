@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+// ==================================================
+// FOR LOOP – PRACTICE PROGRAMS
+// ==================================================
+
+// 1. Print numbers from 1 to 10
+console.log("\n1. Numbers from 1 to 10");
+for (let i = 1; i <= 10; i++) {
+    console.log(i);
+}
+
+// 2. Print numbers from 10 to 1
+console.log("\n2. Reverse order");
+for (let i = 10; i >= 1; i--) {
+    console.log(i);
+}
+
+// 3. Print even numbers between 1 and 50
+console.log("\n3. Even numbers from 1 to 50");
+for (let i = 2; i <= 50; i += 2) {
+    console.log(i);
+}
+
+// 4. Sum of first 100 natural numbers
+console.log("\n4. Sum of first 100 natural numbers");
+let sum100 = 0;
+for (let i = 1; i <= 100; i++) {
+    sum100 += i;
+}
+console.log("Sum =", sum100);
+
+// 5. Multiplication table
+console.log("\n5. Multiplication table of 5");
+let tableNum = 5;
+for (let i = 1; i <= 10; i++) {
+    console.log(`${tableNum} x ${i} = ${tableNum * i}`);
+}
+
+// 6. Factorial of a number
+console.log("\n6. Factorial of 5");
+let factNum = 5;
+let factorial = 1;
+for (let i = 1; i <= factNum; i++) {
+    factorial *= i;
+}
+console.log("Factorial =", factorial);
+
+
+// ==================================================
+// WHILE LOOP – PRACTICE PROGRAMS
+// ==================================================
+
+// 7. Print numbers from 1 to n
+console.log("\n7. Numbers from 1 to n");
+let n = 5;
+let i = 1;
+while (i <= n) {
+    console.log(i);
+    i++;
+}
+
+// 8. Sum of digits of a number
+console.log("\n8. Sum of digits");
+let digitNum = 1234;
+let digitSum = 0;
+while (digitNum > 0) {
+    digitSum += digitNum % 10;
+    digitNum = Math.floor(digitNum / 10);
+}
+console.log("Sum of digits =", digitSum);
+
+// 9. Check palindrome number
+console.log("\n9. Palindrome check");
+let palindromeNum = 121;
+let originalNum = palindromeNum;
+let reversedNum = 0;
+while (palindromeNum > 0) {
+    let digit = palindromeNum % 10;
+    reversedNum = reversedNum * 10 + digit;
+    palindromeNum = Math.floor(palindromeNum / 10);
+}
+console.log(
+    originalNum === reversedNum ? "Palindrome" : "Not palindrome"
+);
+
+// 10. Check Armstrong number (three-digit example)
+console.log("\n10. Armstrong number check");
+let armNum = 153;
+let armOriginal = armNum;
+let armSum = 0;
+while (armNum > 0) {
+    let digit = armNum % 10;
+    armSum += digit ** 3;
+    armNum = Math.floor(armNum / 10);
+}
+console.log(
+    armSum === armOriginal ? "Armstrong number" : "Not Armstrong"
+);
+
+// 11. Find GCD of two numbers
+console.log("\n11. GCD of two numbers");
+let a = 12;
+let b = 18;
+while (b !== 0) {
+    let remainder = a % b;
+    a = b;
+    b = remainder;
+}
+console.log("GCD =", a);
+
+// 12. Print prime numbers from 1 to 100
+console.log("\n12. Prime numbers from 1 to 100");
+for (let num = 2; num <= 100; num++) {
+    let prime = true;
+    let j = 2;
+    while (j <= Math.sqrt(num)) {
+        if (num % j === 0) {
+            prime = false;
+            break;
+        }
+        j++;
+    }
+    if (prime) console.log(num);
+}
+
+// 13. Calculate power a^b
+console.log("\n13. Calculate power");
+let base = 2;
+let exponent = 3;
+let power = 1;
+let p = 0;
+while (p < exponent) {
+    power *= base;
+    p++;
+}
+console.log("Power =", power);
+
+// 14. Count positive, negative, and zero numbers
+console.log("\n14. Count positive, negative, and zero");
+let numbers = [10, -5, 0, 8, -2, 0, 3];
+let positive = 0;
+let negative = 0;
+let zero = 0;
+let index = 0;
+while (index < numbers.length) {
+    if (numbers[index] > 0) {
+        positive++;
+    } else if (numbers[index] < 0) {
+        negative++;
+    } else {
+        zero++;
+    }
+    index++;
+}
+console.log("Positive:", positive);
+console.log("Negative:", negative);
+console.log("Zero:", zero);
+
+// 15. Multiplication table using while loop
+console.log("\n15. Multiplication table using while");
+let whileTableNum = 7;
+let w = 1;
+while (w <= 10) {
+    console.log(`${whileTableNum} x ${w} = ${whileTableNum * w}`);
+    w++;
+}
+
+// 16. Find largest digit in a number
+console.log("\n16. Largest digit");
+let largestNum = 5832;
+let largestDigit = 0;
+while (largestNum > 0) {
+    let digit = largestNum % 10;
+    if (digit > largestDigit) {
+        largestDigit = digit;
+    }
+    largestNum = Math.floor(largestNum / 10);
+}
+console.log("Largest digit =", largestDigit);
+
+
+// ==================================================
+// DO-WHILE LOOP – PRACTICE PROGRAMS
+// ==================================================
+
+// 17. Print numbers from 1 to 10
+console.log("\n17. Do-while: numbers from 1 to 10");
+let d = 1;
+do {
+    console.log(d);
+    d++;
+} while (d <= 10);
+
+// 18. Menu-driven calculator
+// Change choice: 1 = add, 2 = subtract,
+// 3 = multiply, 4 = divide
+console.log("\n18. Calculator");
+let x = 10;
+let y = 5;
+let choice = 3;
+do {
+    if (choice === 1) {
+        console.log("Addition =", x + y);
+    } else if (choice === 2) {
+        console.log("Subtraction =", x - y);
+    } else if (choice === 3) {
+        console.log("Multiplication =", x * y);
+    } else if (choice === 4) {
+        console.log(y !== 0 ? x / y : "Cannot divide by zero");
+    } else {
+        console.log("Invalid choice");
+    }
+} while (false);
+
+// 19. Ask for password until correct
+// Run in a browser because prompt() is used.
+/*
+console.log("\n19. Password check");
+let password;
+do {
+    password = prompt("Enter password:");
+} while (password !== "hello123");
+console.log("Access granted!");
+*/
+
+// 20. Sum numbers until user enters 0
+// Run in a browser because prompt() is used.
+/*
+console.log("\n20. Sum until zero");
+let inputNum;
+let inputSum = 0;
+do {
+    inputNum = Number(prompt("Enter a number (0 to stop):"));
+    inputSum += inputNum;
+} while (inputNum !== 0);
+console.log("Total sum =", inputSum);
+*/
+
+// 21. Check prime using do-while
+console.log("\n21. Prime check using do-while");
+let primeNum = 7;
+let divisor = 2;
+let primeResult = primeNum > 1;
+
+if (primeNum > 2) {
+    do {
+        if (primeNum % divisor === 0) {
+            primeResult = false;
+            break;
+        }
+        divisor++;
+    } while (divisor <= Math.sqrt(primeNum));
+}
+console.log(primeResult ? "Prime" : "Not prime");
+
+// 22. Reverse a number using do-while
+console.log("\n22. Reverse a number");
+let reverseInput = 1234;
+let reverseOutput = 0;
+do {
+    let digit = reverseInput % 10;
+    reverseOutput = reverseOutput * 10 + digit;
+    reverseInput = Math.floor(reverseInput / 10);
+} while (reverseInput > 0);
+console.log("Reversed =", reverseOutput);
+
+// 23. Fibonacci series using do-while
+console.log("\n23. Fibonacci series");
+let first = 0;
+let second = 1;
+let count = 10;
+let fibIndex = 0;
+do {
+    console.log(first);
+    let next = first + second;
+    first = second;
+    second = next;
+    fibIndex++;
+} while (fibIndex < count);
+
+// 24. Generate random number until target matches
+console.log("\n24. Random number until target");
+let target = 5;
+let randomNum;
+do {
+    randomNum = Math.floor(Math.random() * 10) + 1;
+    console.log("Generated:", randomNum);
+} while (randomNum !== target);
+console.log("Target matched!");
+
+// 25. Count digits using do-while
+console.log("\n25. Count digits");
+let countNum = 12345;
+let digitCount = 0;
+do {
+    digitCount++;
+    countNum = Math.floor(countNum / 10);
+} while (countNum > 0);
+console.log("Number of digits =", digitCount);
+
+// 26. Keep asking until a positive number is entered
+// Run in a browser because prompt() is used.
+
+console.log("\n26. Validate positive number");
+let positiveNum;
+do {
+    positiveNum = Number(prompt("Enter a positive number:"));
+} while (!Number.isFinite(positiveNum) || positiveNum <= 0);
+console.log("Valid number:", positiveNum);
+
+    </script>
+</body>
+</html>
