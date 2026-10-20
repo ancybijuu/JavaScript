@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -280,4 +281,288 @@ console.log(student);
 
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+
+console.log("===== STUDENT MANAGEMENT SYSTEM =====");
+
+// ---------------------------------------------
+// PART 1: BASIC INFORMATION AND VARIABLES
+// ---------------------------------------------
+
+const studentName = "Anu";
+let age = 20;
+const course = "JavaScript";
+
+const mark1 = 85;
+const mark2 = 90;
+const mark3 = 75;
+
+console.log("\n--- Student Information ---");
+console.log("Student Name:", studentName);
+console.log("Age:", age);
+console.log("Course:", course);
+console.log("Mark 1:", mark1);
+console.log("Mark 2:", mark2);
+console.log("Mark 3:", mark3);
+
+
+// ---------------------------------------------
+// PART 2: DATA TYPES AND TYPE CONVERSION
+// ---------------------------------------------
+
+console.log("\n--- Data Types ---");
+
+const nameType = "Anu";
+const numberType = 20;
+const booleanType = true;
+let undefinedType;
+const nullType = null;
+const objectType = { city: "Kollam" };
+const arrayType = [85, 90, 75];
+
+console.log("String:", typeof nameType);
+console.log("Number:", typeof numberType);
+console.log("Boolean:", typeof booleanType);
+console.log("Undefined:", typeof undefinedType);
+console.log("Null:", typeof nullType);
+console.log("Object:", typeof objectType);
+console.log("Array:", Array.isArray(arrayType) ? "array" : typeof arrayType);
+
+// Convert string to number
+const stringValue = "85";
+const convertedValue = Number(stringValue);
+
+console.log("\nConverted Value:", convertedValue + 10);
+console.log("Converted Type:", typeof convertedValue);
+
+// Convert number to string
+const numberValue = 100;
+const convertedString = String(numberValue);
+
+console.log("String Value:", convertedString);
+console.log("String Type:", typeof convertedString);
+
+// Boolean conversion
+console.log("Boolean Conversion:", Boolean(1));
+
+
+// ---------------------------------------------
+// PART 3: CONDITIONAL STATEMENTS
+// ---------------------------------------------
+
+const average = (mark1 + mark2 + mark3) / 3;
+
+console.log("\n--- Result and Grade ---");
+console.log("Average Marks:", average.toFixed(2));
+
+if (average >= 90) {
+    console.log("Grade: A");
+} else if (average >= 75) {
+    console.log("Grade: B");
+} else if (average >= 60) {
+    console.log("Grade: C");
+} else if (average >= 40) {
+    console.log("Grade: D");
+} else {
+    console.log("Grade: F");
+}
+
+if (average >= 40) {
+    console.log("Result: Pass");
+} else {
+    console.log("Result: Fail");
+}
+
+
+// ---------------------------------------------
+// PART 4: LOOPS
+// ---------------------------------------------
+
+console.log("\n--- Numbers from 1 to 10 ---");
+
+for (let i = 1; i <= 10; i++) {
+    console.log(i);
+}
+
+console.log("\n--- Numbers from 5 to 1 ---");
+
+let count = 5;
+
+while (count >= 1) {
+    console.log(count);
+    count--;
+}
+
+// Calculate total using a loop
+console.log("\n--- Total Using Loop ---");
+
+const loopMarks = [mark1, mark2, mark3];
+let loopTotal = 0;
+
+for (let i = 0; i < loopMarks.length; i++) {
+    loopTotal += loopMarks[i];
+}
+
+console.log("Total Marks:", loopTotal);
+
+
+// ---------------------------------------------
+// PART 5: ARRAYS
+// ---------------------------------------------
+
+console.log("\n--- Subjects and Marks ---");
+
+const subjects = ["JavaScript", "Python", "Database"];
+const marks = [85, 90, 75];
+
+console.log("Subjects:");
+
+for (let i = 0; i < subjects.length; i++) {
+    console.log(subjects[i]);
+}
+
+console.log("\nSubject Marks:");
+
+for (let i = 0; i < marks.length; i++) {
+    console.log(marks[i]);
+}
+
+// Calculate total marks
+let total = 0;
+
+for (let i = 0; i < marks.length; i++) {
+    total += marks[i];
+}
+
+console.log("Total Marks:", total);
+
+// Calculate average
+const averageMarks = total / marks.length;
+
+console.log("Average Marks:", averageMarks.toFixed(2));
+
+// Find highest mark
+let highestMark = marks[0];
+
+for (let i = 1; i < marks.length; i++) {
+    if (marks[i] > highestMark) {
+        highestMark = marks[i];
+    }
+}
+
+console.log("Highest Mark:", highestMark);
+
+// Add a new subject
+subjects.push("HTML");
+
+console.log("Updated Subjects:", subjects);
+
+
+// ---------------------------------------------
+// PART 6: FUNCTIONS
+// ---------------------------------------------
+
+console.log("\n--- Functions ---");
+
+function calculateTotal(marks) {
+    let total = 0;
+
+    for (let i = 0; i < marks.length; i++) {
+        total += marks[i];
+    }
+
+    return total;
+}
+
+function calculateAverage(marks) {
+    if (marks.length === 0) {
+        return 0;
+    }
+
+    return calculateTotal(marks) / marks.length;
+}
+
+function checkResult(average) {
+    if (average >= 40) {
+        return "Pass";
+    } else {
+        return "Fail";
+    }
+}
+
+function findGrade(average) {
+    if (average >= 90) {
+        return "A";
+    } else if (average >= 75) {
+        return "B";
+    } else if (average >= 60) {
+        return "C";
+    } else if (average >= 40) {
+        return "D";
+    } else {
+        return "F";
+    }
+}
+
+const functionTotal = calculateTotal(marks);
+const functionAverage = calculateAverage(marks);
+const functionResult = checkResult(functionAverage);
+const functionGrade = findGrade(functionAverage);
+
+console.log("Total:", functionTotal);
+console.log("Average:", functionAverage.toFixed(2));
+console.log("Result:", functionResult);
+console.log("Grade:", functionGrade);
+
+
+// ---------------------------------------------
+// PART 7: OBJECTS
+// ---------------------------------------------
+
+console.log("\n--- Student Object ---");
+
+const student = {
+    name: studentName,
+    age: age,
+    course: course,
+    subjects: subjects,
+    marks: marks
+};
+
+// Display name and course
+console.log("Student Name:", student.name);
+console.log("Course:", student.course);
+
+// Display subject marks
+console.log("Subject Marks:");
+
+for (let i = 0; i < student.marks.length; i++) {
+    console.log(student.marks[i]);
+}
+
+// Update age
+student.age = 21;
+
+// Add new property
+student.city = "Kollam";
+
+// Display complete information
+console.log("\nComplete Student Information:");
+console.log(student);
+
+
+
+    </script>
+</body>
+>>>>>>> edd75fb (Add JavaScript practice files and projects)
 </html>

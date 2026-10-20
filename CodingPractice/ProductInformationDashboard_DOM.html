@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Information Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 30px;
+        }
+
+        #productSection {
+            background-color: white;
+            padding: 25px;
+            margin: 20px auto;
+            max-width: 400px;
+            border-radius: 10px;
+        }
+
+        #productImage {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+        }
+
+        #productPrice {
+            font-size: 20px;
+        }
+
+        #availability {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="productSection">
+        <h1 id="productHeading">Product Details</h1>
+
+        <img
+            id="productImage"
+            src="https://placehold.co/150x150?text=Wireless+Mouse"
+            alt="Wireless Mouse Product Image"
+        >
+
+        <p id="productName">Product Name: Wireless Mouse</p>
+        <p id="productPrice">Price: ₹800</p>
+        <p id="productCategory">Category: Computer Accessories</p>
+        <p id="availability">Availability: Out of Stock</p>
+    </div>
+
+    <script>
+        // 1. Select the heading using getElementById()
+        let heading = document.getElementById("productHeading");
+        heading.textContent = "Updated Product Details";
+
+        // 2. Update the product name
+        let name = document.getElementById("productName");
+        name.textContent = "Product Name: Wireless Keyboard";
+
+        // 3. Update the price
+        let price = document.getElementById("productPrice");
+        price.textContent = "Price: ₹1,200";
+
+        // 4. Change the price font size to 28px
+        price.style.fontSize = "28px";
+
+        // 5. Update the category using querySelector()
+        let category = document.querySelector("#productCategory");
+        category.textContent = "Category: Computer Peripherals";
+
+        // 6. Update the availability message
+        let availability = document.getElementById("availability");
+        availability.textContent = "Availability: In Stock";
+
+        // 7. Change the availability text color to green
+        availability.style.color = "green";
+
+        // 8. Change the product section background color
+        let productSection = document.getElementById("productSection");
+        productSection.style.backgroundColor = "lightblue";
+
+        // 9. Add a border around the product section
+        productSection.style.border = "2px solid black";
+
+        // 10. Update the image alt attribute using setAttribute()
+        let image = document.getElementById("productImage");
+        image.setAttribute("alt", "Wireless Keyboard Product Image");
+    </script>
+
+</body>
+</html>

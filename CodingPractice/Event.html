@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Practice Tasks</title>
+</head>
+<body>
+
+    <h2>Task 1: Change Heading</h2>
+    <h1 id="heading">Good Morning</h1>
+    <button id="changeBtn">Change Message</button>
+
+    <hr>
+
+    <h2>Task 2: Change Text Color</h2>
+    <p id="paragraph">This is a sample paragraph.</p>
+    <button id="colorBtn">Change Color</button>
+
+    <hr>
+
+    <h2>Task 3: Mouseover</h2>
+    <h1 id="mouseHeading">Move Mouse Here</h1>
+
+    <hr>
+
+    <h2>Task 4: Live Greeting</h2>
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <p id="greeting"></p>
+
+    <hr>
+
+    <h2>Task 5: Double Click</h2>
+    <p id="message">Click Me Twice</p>
+
+    <script>
+        // Task 1: Change Heading
+        let heading = document.getElementById("heading");
+        let changeBtn = document.getElementById("changeBtn");
+
+        changeBtn.addEventListener("click", function() {
+            heading.textContent = "Welcome to JavaScript";
+        });
+
+        // Task 2: Change Text Color
+        let paragraph = document.getElementById("paragraph");
+        let colorBtn = document.getElementById("colorBtn");
+
+        colorBtn.addEventListener("click", function() {
+            paragraph.style.color = "blue";
+        });
+
+        // Task 3: Mouseover
+        let mouseHeading = document.getElementById("mouseHeading");
+        mouseHeading.addEventListener("mouseover", function() {
+        mouseHeading.style.color = "red";
+        });
+
+        // Task 4: Live Greeting
+        let nameInput = document.getElementById("nameInput");
+        let greeting = document.getElementById("greeting");
+
+        nameInput.addEventListener("input", function() {
+            greeting.textContent = "Hello, " + nameInput.value;
+        });
+
+        // Task 5: Double Click
+        let message = document.getElementById("message");
+
+        message.addEventListener("dblclick", function() {
+            message.textContent = "Double-click event completed!";
+        });
+    </script>
+
+</body>
+</html>

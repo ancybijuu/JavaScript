@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Quiz App</title>
+</head>
+<body>
+
+    <h1>JavaScript Quiz App</h1>
+    <p>Open the browser console (F12 → Console) to see the questions and results.</p>
+
+    <script>
+        console.log("********** JAVASCRIPT QUIZ APP **********");
+
+        // Questions and answers
+        const questions = [
+            {
+                question: "What is 10 + 5?",
+                options: ["105", "15", "50", "5"],
+                answer: 2
+            },
+            {
+                question: "Which keyword declares a variable?",
+                options: ["let", "print", "show", "display"],
+                answer: 1
+            },
+            {
+                question: "Which language is used for web development?",
+                options: ["HTML", "JavaScript", "CSS", "All of these"],
+                answer: 4
+            },
+            {
+                question: "Which loop repeats while a condition is true?",
+                options: ["if", "while", "switch", "break"],
+                answer: 2
+            },
+            {
+                question: "Which method adds an item to an array?",
+                options: ["pop()", "push()", "remove()", "delete()"],
+                answer: 2
+            }
+        ];
+
+        // Initialize score
+        let score = 0;
+
+        // Loop through questions
+        for (let i = 0; i < questions.length; i++) {
+
+            // STEP 1: Display question in console
+            console.log("\n================================");
+            console.log("Question " + (i + 1) + ":");
+            console.log(questions[i].question);
+
+            let message = "";
+
+            // STEP 2: Display options in console
+            for (let j = 0; j < questions[i].options.length; j++) {
+                console.log(
+                    (j + 1) + ". " + questions[i].options[j]
+                );
+
+                message += (j + 1) + ". " +
+                    questions[i].options[j] + "\n";
+            }
+
+            // STEP 3: Show popup in browser
+            let input = prompt(
+                "Question " + (i + 1) + "\n\n" +
+                questions[i].question + "\n\n" +
+                message +
+                "\nEnter your option (1-4):"
+            );
+
+            // Handle Cancel button
+            if (input === null) {
+                console.log("Quiz cancelled by user.");
+                break;
+            }
+
+            let userAnswer = Number(input);
+
+            // STEP 4: Check the answer
+            if (
+                input.trim() !== "" &&
+                Number.isInteger(userAnswer) &&
+                userAnswer >= 1 &&
+                userAnswer <= questions[i].options.length
+            ) {
+
+                console.log(
+                    "Your answer: " +
+                    questions[i].options[userAnswer - 1]
+                );
+
+                if (userAnswer === questions[i].answer) {
+                    console.log("Correct Answer!");
+                    score++;
+                } else {
+                    console.log("Wrong Answer!");
+
+                    console.log(
+                        "Correct answer: " +
+                        questions[i].options[
+                            questions[i].answer - 1
+                        ]
+                    );
+                }
+
+            } else {
+                console.log("Invalid choice! Please enter a number from 1 to 4.");
+
+                console.log(
+                    "Correct answer: " +
+                    questions[i].options[
+                        questions[i].answer - 1
+                    ]
+                );
+            }
+        }
+
+        // STEP 5: Display final result
+        console.log("\n========== QUIZ RESULT ==========");
+        console.log("Total Questions: " + questions.length);
+        console.log("Correct Answers: " + score);
+        console.log("Incorrect Answers: " + (questions.length - score));
+        console.log("Final Score: " + score + "/" + questions.length);
+
+        console.log(
+            "Percentage: " +
+            ((score / questions.length) * 100).toFixed(2) + "%"
+        );
+
+        console.log("=================================");
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,387 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Conditional Statements Practice</title>
+</head>
+<body>
+
+    <h1>JavaScript Conditional Statements</h1>
+    <p>Open the browser console (F12 → Console) to see the output.</p>
+
+    <script>
+        // ========================================
+        // PART 1: IF STATEMENT
+        // ========================================
+
+        console.log("===== PART 1: IF STATEMENT =====");
+
+        // 1. Check positive number
+        let num1 = 10;
+        if (num1 > 0) {
+            console.log("1. Positive number");
+        }
+
+        // 2. Divisible by 5
+        let num2 = 25;
+        if (num2 % 5 === 0) {
+            console.log("2. Divisible by 5");
+        }
+
+        // 3. Eligible to vote
+        let age1 = 20;
+        if (age1 >= 18) {
+            console.log("3. Eligible to vote");
+        }
+
+        // 4. Greater than 100
+        let num3 = 150;
+        if (num3 > 100) {
+            console.log("4. Number is greater than 100");
+        }
+
+        // 5. Check vowel using only if
+        let char1 = "a";
+        if ("aeiouAEIOU".includes(char1)) {
+            console.log("5. Vowel");
+        }
+
+
+        // ========================================
+        // PART 2: IF-ELSE STATEMENT
+        // ========================================
+
+        console.log("===== PART 2: IF-ELSE STATEMENT =====");
+
+        // 6. Even or odd
+        let num4 = 8;
+        if (num4 % 2 === 0) {
+            console.log("6. Even number");
+        } else {
+            console.log("6. Odd number");
+        }
+
+        // 7. Positive or negative
+        let num5 = -5;
+        if (num5 >= 0) {
+            console.log("7. Positive number or zero");
+        } else {
+            console.log("7. Negative number");
+        }
+
+        // 8. Pass or fail
+        let marks1 = 65;
+        if (marks1 >= 40) {
+            console.log("8. Pass");
+        } else {
+            console.log("8. Fail");
+        }
+
+        // 9. Greater of two numbers
+        let a = 25, b = 40;
+        if (a > b) {
+            console.log("9. Greater number: " + a);
+        } else if (b > a) {
+            console.log("9. Greater number: " + b);
+        } else {
+            console.log("9. Both numbers are equal");
+        }
+
+        // 10. Leap year
+        let year = 2024;
+        if ((year % 400 === 0) ||
+            (year % 4 === 0 && year % 100 !== 0)) {
+            console.log("10. Leap year");
+        } else {
+            console.log("10. Not a leap year");
+        }
+
+
+        // ========================================
+        // PART 3: ELSE-IF LADDER
+        // ========================================
+
+        console.log("===== PART 3: ELSE-IF LADDER =====");
+
+        // 11. Student grade
+        let marks2 = 85;
+        if (marks2 >= 90) {
+            console.log("11. Grade A");
+        } else if (marks2 >= 75) {
+            console.log("11. Grade B");
+        } else if (marks2 >= 50) {
+            console.log("11. Grade C");
+        } else {
+            console.log("11. Fail");
+        }
+
+        // 12. Positive, negative, or zero
+        let num6 = 0;
+        if (num6 > 0) {
+            console.log("12. Positive");
+        } else if (num6 < 0) {
+            console.log("12. Negative");
+        } else {
+            console.log("12. Zero");
+        }
+
+        // 13. Largest of three numbers
+        let x = 20, y = 45, z = 30;
+        if (x >= y && x >= z) {
+            console.log("13. Largest: " + x);
+        } else if (y >= x && y >= z) {
+            console.log("13. Largest: " + y);
+        } else {
+            console.log("13. Largest: " + z);
+        }
+
+        // 14. Electricity bill (progressive slabs)
+        let units = 250;
+        let bill;
+        if (units <= 100) {
+            bill = units * 1;
+        } else if (units <= 200) {
+            bill = 100 * 1 + (units - 100) * 2;
+        } else {
+            bill = 100 * 1 + 100 * 2 + (units - 200) * 3;
+        }
+        console.log("14. Electricity bill: ₹" + bill);
+
+        // 15. Traffic signal
+        let signal = "Yellow";
+        if (signal === "Red") {
+            console.log("15. Stop");
+        } else if (signal === "Yellow") {
+            console.log("15. Ready");
+        } else if (signal === "Green") {
+            console.log("15. Go");
+        } else {
+            console.log("15. Invalid signal");
+        }
+
+
+        // ========================================
+        // PART 4: SWITCH STATEMENT
+        // ========================================
+
+        console.log("===== PART 4: SWITCH STATEMENT =====");
+
+        // 16. Day name
+        let day = 3;
+        switch (day) {
+            case 1: console.log("16. Monday"); break;
+            case 2: console.log("16. Tuesday"); break;
+            case 3: console.log("16. Wednesday"); break;
+            case 4: console.log("16. Thursday"); break;
+            case 5: console.log("16. Friday"); break;
+            case 6: console.log("16. Saturday"); break;
+            case 7: console.log("16. Sunday"); break;
+            default: console.log("16. Invalid day number");
+        }
+
+        // 17. Simple calculator
+        let choice = 1;
+        let n1 = 20, n2 = 10;
+        switch (choice) {
+            case 1:
+                console.log("17. Addition: " + (n1 + n2));
+                break;
+            case 2:
+                console.log("17. Subtraction: " + (n1 - n2));
+                break;
+            case 3:
+                console.log("17. Multiplication: " + (n1 * n2));
+                break;
+            case 4:
+                if (n2 !== 0) {
+                    console.log("17. Division: " + (n1 / n2));
+                } else {
+                    console.log("17. Cannot divide by zero");
+                }
+                break;
+            default:
+                console.log("17. Invalid choice");
+        }
+
+        // 18. Month name
+        let month = 10;
+        switch (month) {
+            case 1: console.log("18. January"); break;
+            case 2: console.log("18. February"); break;
+            case 3: console.log("18. March"); break;
+            case 4: console.log("18. April"); break;
+            case 5: console.log("18. May"); break;
+            case 6: console.log("18. June"); break;
+            case 7: console.log("18. July"); break;
+            case 8: console.log("18. August"); break;
+            case 9: console.log("18. September"); break;
+            case 10: console.log("18. October"); break;
+            case 11: console.log("18. November"); break;
+            case 12: console.log("18. December"); break;
+            default: console.log("18. Invalid month number");
+        }
+
+        // 19. Menu-driven program
+        let menu = 2;
+        switch (menu) {
+            case 1: console.log("19. Tea selected"); break;
+            case 2: console.log("19. Coffee selected"); break;
+            case 3: console.log("19. Juice selected"); break;
+            default: console.log("19. Invalid menu choice");
+        }
+
+        // 20. Vowel or consonant using switch
+        let char2 = "e".toLowerCase();
+        switch (char2) {
+            case "a":
+            case "e":
+            case "i":
+            case "o":
+            case "u":
+                console.log("20. Vowel");
+                break;
+            default:
+                if (/^[a-z]$/.test(char2)) {
+                    console.log("20. Consonant");
+                } else {
+                    console.log("20. Enter a single alphabet");
+                }
+        }
+
+
+        // ========================================
+        // PART 5: REVISION QUESTIONS
+        // ========================================
+
+        console.log("===== PART 5: REVISION =====");
+
+        // 21. Greater than 50 using if
+        let num7 = 75;
+        if (num7 > 50) {
+            console.log("21. Greater than 50");
+        }
+
+        // 22. Even or odd using if-else
+        let num8 = 11;
+        if (num8 % 2 === 0) {
+            console.log("22. Even");
+        } else {
+            console.log("22. Odd");
+        }
+
+        // 23. Voting eligibility using if-else
+        let age2 = 17;
+        if (age2 >= 18) {
+            console.log("23. Eligible to vote");
+        } else {
+            console.log("23. Not eligible to vote");
+        }
+
+        // 24. Positive, negative, or zero using else-if
+        let num9 = -12;
+        if (num9 > 0) {
+            console.log("24. Positive");
+        } else if (num9 < 0) {
+            console.log("24. Negative");
+        } else {
+            console.log("24. Zero");
+        }
+
+        // 25. Grade using else-if
+        let marks3 = 92;
+        if (marks3 >= 90) {
+            console.log("25. Grade A");
+        } else if (marks3 >= 75) {
+            console.log("25. Grade B");
+        } else if (marks3 >= 50) {
+            console.log("25. Grade C");
+        } else {
+            console.log("25. Fail");
+        }
+
+        // 26. Largest of three numbers using else-if
+        let p = 12, q = 18, r = 9;
+        if (p >= q && p >= r) {
+            console.log("26. Largest: " + p);
+        } else if (q >= p && q >= r) {
+            console.log("26. Largest: " + q);
+        } else {
+            console.log("26. Largest: " + r);
+        }
+
+        // 27. Day name using switch
+        let day2 = 5;
+        switch (day2) {
+            case 1: console.log("27. Monday"); break;
+            case 2: console.log("27. Tuesday"); break;
+            case 3: console.log("27. Wednesday"); break;
+            case 4: console.log("27. Thursday"); break;
+            case 5: console.log("27. Friday"); break;
+            case 6: console.log("27. Saturday"); break;
+            case 7: console.log("27. Sunday"); break;
+            default: console.log("27. Invalid day");
+        }
+
+        // 28. Calculator using switch
+        let calculatorChoice = 3;
+        let first = 8, second = 4;
+        switch (calculatorChoice) {
+            case 1: console.log("28. Addition: " + (first + second)); break;
+            case 2: console.log("28. Subtraction: " + (first - second)); break;
+            case 3: console.log("28. Multiplication: " + (first * second)); break;
+            case 4:
+                if (second !== 0) {
+                    console.log("28. Division: " + (first / second));
+                } else {
+                    console.log("28. Cannot divide by zero");
+                }
+                break;
+            default: console.log("28. Invalid choice");
+        }
+
+        // 29. Month name using switch
+        let month2 = 12;
+        switch (month2) {
+            case 1: console.log("29. January"); break;
+            case 2: console.log("29. February"); break;
+            case 3: console.log("29. March"); break;
+            case 4: console.log("29. April"); break;
+            case 5: console.log("29. May"); break;
+            case 6: console.log("29. June"); break;
+            case 7: console.log("29. July"); break;
+            case 8: console.log("29. August"); break;
+            case 9: console.log("29. September"); break;
+            case 10: console.log("29. October"); break;
+            case 11: console.log("29. November"); break;
+            case 12: console.log("29. December"); break;
+            default: console.log("29. Invalid month");
+        }
+
+        // 30. When to use if-else and switch
+        console.log("30. IF-ELSE: Use for conditions and ranges.");
+        let temperature = 35;
+        if (temperature > 30) {
+            console.log("   Example: It is hot.");
+        } else {
+            console.log("   Example: It is not hot.");
+        }
+
+        console.log("    SWITCH: Use to match one value against many options.");
+        let fruit = "Apple";
+        switch (fruit) {
+            case "Apple":
+                console.log("   Example: You selected Apple.");
+                break;
+            case "Mango":
+                console.log("   Example: You selected Mango.");
+                break;
+            default:
+                console.log("   Example: Unknown fruit.");
+        }
+    </script>
+
+</body>
+</html>
+```

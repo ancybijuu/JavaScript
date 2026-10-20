@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Course Registration</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 95%;
+            padding: 10px;
+            margin: 8px 0 15px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>College Course Registration</h1>
+
+        <form id="registrationForm">
+            <label for="studentName">Student Name:</label>
+            <input type="text" id="studentName" placeholder="Enter your name">
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" placeholder="Enter your email">
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" placeholder="Enter your age">
+
+            <label for="course">Course Name:</label>
+            <input type="text" id="course" placeholder="Enter course name">
+
+            <button type="submit">Register</button>
+        </form>
+
+        <p id="message"></p>
+    </div>
+
+    <script>
+        let form = document.getElementById("registrationForm");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let name = document.getElementById("studentName").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let age = document.getElementById("age").value;
+            let course = document.getElementById("course").value.trim();
+            let message = document.getElementById("message");
+
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            message.className = "";
+
+            if (name === "") {
+                message.textContent = "Student name is required!";
+                message.classList.add("error");
+            } else if (email === "") {
+                message.textContent = "Email is required!";
+                message.classList.add("error");
+            } else if (!emailPattern.test(email)) {
+                message.textContent = "Please enter a valid email address!";
+                message.classList.add("error");
+            } else if (age.trim() === "") {
+                message.textContent = "Age is required!";
+                message.classList.add("error");
+            } else if (!Number.isInteger(Number(age)) || Number(age) < 18) {
+                message.textContent = "Student must be at least 18 years old!";
+                message.classList.add("error");
+            } else if (course === "") {
+                message.textContent = "Course name is required!";
+                message.classList.add("error");
+            } else {
+                message.textContent = "Registration successful!";
+                message.classList.add("success");
+                form.reset();
+            }
+        });
+    </script>
+
+</body>
+</html>

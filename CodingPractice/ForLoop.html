@@ -1,0 +1,470 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Loop Practice</title>
+</head>
+<body>
+
+    <h1>JavaScript Loop Practice Programs</h1>
+    <p>Open the browser console using F12 → Console to see the output.</p>
+
+    <script>
+        // ==========================================
+        // PART 1: FOR LOOP
+        // ==========================================
+
+        console.log("========== FOR LOOP ==========");
+
+        // 1. Print numbers from 1 to 10
+        console.log("1. Numbers from 1 to 10:");
+        for (let i = 1; i <= 10; i++) {
+            console.log(i);
+        }
+
+        // 2. Print numbers from 10 to 1
+        console.log("2. Reverse order:");
+        for (let i = 10; i >= 1; i--) {
+            console.log(i);
+        }
+
+        // 3. Even numbers between 1 and 50
+        console.log("3. Even numbers:");
+        for (let i = 2; i <= 50; i += 2) {
+            console.log(i);
+        }
+
+        // 4. Odd numbers between 1 and 50
+        console.log("4. Odd numbers:");
+        for (let i = 1; i <= 50; i += 2) {
+            console.log(i);
+        }
+
+        // 5. Sum of first 100 natural numbers
+        let sum = 0;
+        for (let i = 1; i <= 100; i++) {
+            sum += i;
+        }
+        console.log("5. Sum:", sum);
+
+        // 6. Multiplication table
+        let tableNum = Number(prompt("6. Enter a number for multiplication table:"));
+        console.log("6. Multiplication table of " + tableNum);
+        for (let i = 1; i <= 10; i++) {
+            console.log(tableNum + " x " + i + " = " + (tableNum * i));
+        }
+
+        // 7. Factorial of a number
+        let factNum = Number(prompt("7. Enter a number for factorial:"));
+        let factorial = 1;
+        if (Number.isInteger(factNum) && factNum >= 0) {
+            for (let i = 1; i <= factNum; i++) {
+                factorial *= i;
+            }
+            console.log("7. Factorial:", factorial);
+        } else {
+            console.log("7. Enter a non-negative integer.");
+        }
+
+        // 8. Fibonacci series up to n terms
+        let terms = Number(prompt("8. Enter Fibonacci terms:"));
+        let first = 0, second = 1;
+        let fibonacci = [];
+        if (Number.isInteger(terms) && terms >= 0) {
+            for (let i = 0; i < terms; i++) {
+                fibonacci.push(first);
+                let next = first + second;
+                first = second;
+                second = next;
+            }
+            console.log("8. Fibonacci:", fibonacci.join(", "));
+        } else {
+            console.log("8. Enter a non-negative integer.");
+        }
+
+        // 9. Count digits in a number
+        let digitNum = Math.abs(Number(prompt("9. Enter a number to count digits:")));
+        if (Number.isInteger(digitNum)) {
+            let count = digitNum === 0 ? 1 : 0;
+            for (; digitNum >= 1; digitNum = Math.floor(digitNum / 10)) {
+                if (count !== 1 || digitNum !== 0) {
+                    count++;
+                }
+            }
+            console.log("9. Digit count:", count);
+        } else {
+            console.log("9. Enter a valid integer.");
+        }
+
+        // 10. Reverse a number
+        let reverseNum = Math.trunc(Number(prompt("10. Enter a number to reverse:")));
+        if (Number.isSafeInteger(reverseNum)) {
+            let original = Math.abs(reverseNum);
+            let reversed = 0;
+            for (; original > 0; original = Math.floor(original / 10)) {
+                reversed = reversed * 10 + original % 10;
+            }
+            console.log("10. Reversed number:", reverseNum < 0 ? -reversed : reversed);
+        } else {
+            console.log("10. Enter a valid safe integer.");
+        }
+
+
+        // ==========================================
+        // PART 2: WHILE LOOP
+        // ==========================================
+
+        console.log("========== WHILE LOOP ==========");
+
+        // 11. Print numbers from 1 to n
+        let n = Number(prompt("11. Enter n:"));
+        if (Number.isInteger(n) && n >= 1) {
+            let i = 1;
+            while (i <= n) {
+                console.log(i);
+                i++;
+            }
+        } else {
+            console.log("11. Enter an integer greater than 0.");
+        }
+
+        // 12. Sum of digits
+        let sumNum = Math.abs(Math.trunc(Number(prompt("12. Enter a number to sum its digits:"))));
+        let digitSum = 0;
+        if (Number.isSafeInteger(sumNum)) {
+            while (sumNum > 0) {
+                digitSum += sumNum % 10;
+                sumNum = Math.floor(sumNum / 10);
+            }
+            console.log("12. Sum of digits:", digitSum);
+        } else {
+            console.log("12. Enter a valid safe integer.");
+        }
+
+        // 13. Check palindrome number
+        let palindromeNum = Math.trunc(Number(prompt("13. Enter a palindrome-check number:")));
+        if (Number.isSafeInteger(palindromeNum)) {
+            let originalNum = Math.abs(palindromeNum);
+            let temp = originalNum;
+            let reversedNum = 0;
+            while (temp > 0) {
+                reversedNum = reversedNum * 10 + temp % 10;
+                temp = Math.floor(temp / 10);
+            }
+            console.log(
+                "13. Palindrome:",
+                palindromeNum >= 0 && originalNum === reversedNum
+            );
+        } else {
+            console.log("13. Enter a valid safe integer.");
+        }
+
+        // 14. Check Armstrong number
+        let armNum = Number(prompt("14. Enter an Armstrong number candidate:"));
+        if (Number.isSafeInteger(armNum) && armNum >= 0) {
+            let temp = armNum;
+            let digits = String(armNum).length;
+            let armSum = 0;
+            while (temp > 0) {
+                let digit = temp % 10;
+                armSum += digit ** digits;
+                temp = Math.floor(temp / 10);
+            }
+            console.log("14. Armstrong number:", armSum === armNum);
+        } else {
+            console.log("14. Enter a non-negative safe integer.");
+        }
+
+        // 15. GCD of two numbers
+        let gcdA = Math.abs(Number(prompt("15. Enter the first integer:")));
+        let gcdB = Math.abs(Number(prompt("15. Enter the second integer:")));
+        if (Number.isSafeInteger(gcdA) && Number.isSafeInteger(gcdB)) {
+            while (gcdB !== 0) {
+                let remainder = gcdA % gcdB;
+                gcdA = gcdB;
+                gcdB = remainder;
+            }
+            console.log("15. GCD:", gcdA);
+        } else {
+            console.log("15. Enter valid safe integers.");
+        }
+
+        // 16. Prime numbers between 1 and 100
+        console.log("16. Prime numbers from 1 to 100:");
+        let prime = 2;
+        while (prime <= 100) {
+            let isPrime = true;
+            let divisor = 2;
+            while (divisor * divisor <= prime) {
+                if (prime % divisor === 0) {
+                    isPrime = false;
+                    break;
+                }
+                divisor++;
+            }
+            if (isPrime) {
+                console.log(prime);
+            }
+            prime++;
+        }
+
+        // 17. Calculate power a^b
+        let base = Number(prompt("17. Enter the base:"));
+        let exponent = Number(prompt("17. Enter a non-negative exponent:"));
+        if (Number.isFinite(base) && Number.isInteger(exponent) && exponent >= 0) {
+            let power = 1;
+            let i = 0;
+            while (i < exponent) {
+                power *= base;
+                i++;
+            }
+            console.log("17. Power:", power);
+        } else {
+            console.log("17. Enter a valid base and non-negative integer exponent.");
+        }
+
+        // 18. Count positive, negative and zero numbers
+        let positive = 0, negative = 0, zero = 0;
+        let continueInput = true;
+        while (continueInput) {
+            let value = prompt("18. Enter a number, or type stop to finish:");
+            if (value === null || value.trim().toLowerCase() === "stop") {
+                continueInput = false;
+            } else if (value.trim() !== "" && Number.isFinite(Number(value))) {
+                let number = Number(value);
+                if (number > 0) {
+                    positive++;
+                } else if (number < 0) {
+                    negative++;
+                } else {
+                    zero++;
+                }
+            } else {
+                console.log("18. Invalid input. Enter a number or stop.");
+            }
+        }
+        console.log("18. Positive:", positive);
+        console.log("18. Negative:", negative);
+        console.log("18. Zero:", zero);
+
+        // 19. Multiplication table using while
+        let whileTable = Number(prompt("19. Enter a number for its table:"));
+        if (Number.isFinite(whileTable)) {
+            let i = 1;
+            while (i <= 10) {
+                console.log(whileTable + " x " + i + " = " + (whileTable * i));
+                i++;
+            }
+        } else {
+            console.log("19. Enter a valid number.");
+        }
+
+        // 20. Largest digit in a number
+        let largestInput = Math.abs(Number(prompt("20. Enter an integer:")));
+        if (Number.isSafeInteger(largestInput)) {
+            let largestDigit = 0;
+            while (largestInput > 0) {
+                let digit = largestInput % 10;
+                if (digit > largestDigit) {
+                    largestDigit = digit;
+                }
+                largestInput = Math.floor(largestInput / 10);
+            }
+            console.log("20. Largest digit:", largestDigit);
+        } else {
+            console.log("20. Enter a valid safe integer.");
+        }
+
+
+        // ==========================================
+        // PART 3: DO-WHILE LOOP
+        // ==========================================
+
+        console.log("========== DO-WHILE LOOP ==========");
+
+        // 21. Print numbers from 1 to 10
+        let countNum = 1;
+        do {
+            console.log("21.", countNum);
+            countNum++;
+        } while (countNum <= 10);
+
+        // 22. Menu-driven calculator
+        let choice;
+        do {
+            choice = Number(prompt(
+                "22. Calculator\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n0. Exit"
+            ));
+
+            if (choice >= 1 && choice <= 4) {
+                let a = Number(prompt("Enter the first number:"));
+                let b = Number(prompt("Enter the second number:"));
+
+                if (!Number.isFinite(a) || !Number.isFinite(b)) {
+                    console.log("22. Enter valid numbers.");
+                } else {
+                    switch (choice) {
+                        case 1:
+                            console.log("22. Addition:", a + b);
+                            break;
+                        case 2:
+                            console.log("22. Subtraction:", a - b);
+                            break;
+                        case 3:
+                            console.log("22. Multiplication:", a * b);
+                            break;
+                        case 4:
+                            console.log(
+                                "22. Division:",
+                                b !== 0 ? a / b : "Cannot divide by zero"
+                            );
+                            break;
+                    }
+                }
+            } else if (choice !== 0) {
+                console.log("22. Invalid choice.");
+            }
+        } while (choice !== 0 && !Number.isNaN(choice));
+        console.log("22. Calculator closed.");
+
+        // 23. Password until correct
+        const correctPassword = "javascript123";
+        let password;
+        do {
+            password = prompt("23. Enter password (type exit to cancel):");
+            if (password === null || password.toLowerCase() === "exit") {
+                break;
+            }
+            if (password !== correctPassword) {
+                console.log("23. Incorrect password. Try again.");
+            }
+        } while (password !== correctPassword);
+        if (password === correctPassword) {
+            console.log("23. Correct password!");
+        } else {
+            console.log("23. Password entry cancelled.");
+        }
+
+        // 24. Sum numbers until user enters 0
+        let runningSum = 0;
+        let inputNumber;
+        do {
+            inputNumber = prompt("24. Enter a number (0 to finish):");
+            if (inputNumber === null) {
+                break;
+            }
+            if (inputNumber.trim() === "" || !Number.isFinite(Number(inputNumber))) {
+                console.log("24. Enter a valid number.");
+                continue;
+            }
+            let value = Number(inputNumber);
+            if (value !== 0) {
+                runningSum += value;
+            }
+        } while (Number(inputNumber) !== 0);
+        console.log("24. Sum:", runningSum);
+
+        // 25. Check whether a number is prime
+        let primeNum = Number(prompt("25. Enter an integer to check prime:"));
+        if (Number.isInteger(primeNum) && primeNum >= 2) {
+            let divisor = 2;
+            let primeCheck = true;
+            do {
+                if (primeNum % divisor === 0 && divisor !== primeNum) {
+                    primeCheck = false;
+                    break;
+                }
+                divisor++;
+            } while (divisor * divisor <= primeNum);
+            console.log("25. Prime number:", primeCheck);
+        } else {
+            console.log("25. Not a prime number.");
+        }
+
+        // 26. Reverse a number using do-while
+        let reverseInput = Math.trunc(Number(prompt("26. Enter a number to reverse:")));
+        if (Number.isSafeInteger(reverseInput)) {
+            let temp = Math.abs(reverseInput);
+            let reverseResult = 0;
+            do {
+                reverseResult = reverseResult * 10 + temp % 10;
+                temp = Math.floor(temp / 10);
+            } while (temp > 0);
+            console.log("26. Reversed number:", reverseInput < 0 ? -reverseResult : reverseResult);
+        } else {
+            console.log("26. Enter a valid safe integer.");
+        }
+
+        // 27. Fibonacci series using do-while
+        let fibTerms = Number(prompt("27. Enter Fibonacci term count:"));
+        if (Number.isInteger(fibTerms) && fibTerms >= 1) {
+            let f1 = 0, f2 = 1, index = 0;
+            let fibResult = [];
+            do {
+                fibResult.push(f1);
+                let next = f1 + f2;
+                f1 = f2;
+                f2 = next;
+                index++;
+            } while (index < fibTerms);
+            console.log("27. Fibonacci:", fibResult.join(", "));
+        } else if (fibTerms === 0) {
+            console.log("27. Fibonacci: (no terms requested)");
+        } else {
+            console.log("27. Enter a non-negative integer.");
+        }
+
+        // 28. Generate random number until it matches target
+        const target = Math.floor(Math.random() * 5) + 1;
+        let randomNumber;
+        let attempts = 0;
+        do {
+            randomNumber = Math.floor(Math.random() * 5) + 1;
+            attempts++;
+            console.log("28. Attempt " + attempts + ": " + randomNumber);
+        } while (randomNumber !== target);
+        console.log("28. Target:", target, "| Matched in", attempts, "attempts");
+
+        // 29. Count digits using do-while
+        let countInput = Math.abs(Number(prompt("29. Enter an integer to count digits:")));
+        if (Number.isSafeInteger(countInput)) {
+            let digitsCount = 0;
+            do {
+                digitsCount++;
+                countInput = Math.floor(countInput / 10);
+            } while (countInput > 0);
+            console.log("29. Digit count:", digitsCount);
+        } else {
+            console.log("29. Enter a valid safe integer.");
+        }
+
+        // 30. Ask for a positive number until valid
+        let positiveInput;
+        let validNumber;
+        do {
+            positiveInput = prompt("30. Enter a positive number:");
+            validNumber = positiveInput !== null &&
+                positiveInput.trim() !== "" &&
+                Number.isFinite(Number(positiveInput)) &&
+                Number(positiveInput) > 0;
+
+            if (positiveInput === null) {
+                console.log("30. Input cancelled.");
+                break;
+            }
+            if (!validNumber) {
+                console.log("30. Invalid input. Try again.");
+            }
+        } while (!validNumber);
+
+        if (validNumber) {
+            console.log("30. Valid positive number:", Number(positiveInput));
+        }
+
+        console.log("========== ALL PROGRAMS COMPLETED ==========");
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Local Storage Tasks</title>
+</head>
+<body>
+
+    <h1>JavaScript Local Storage Practice</h1>
+    <p>Open the browser console using F12 to see the results.</p>
+
+    <script>
+        // TASK 1: STUDENT DETAILS
+
+        localStorage.setItem("studentName", "Anu");
+        localStorage.setItem("course", "MERN Full Stack Development");
+
+        let studentName = localStorage.getItem("studentName");
+        let course = localStorage.getItem("course");
+
+        console.log("TASK 1: STUDENT DETAILS");
+        console.log("Student Name:", studentName);
+        console.log("Course:", course);
+
+
+        // TASK 2: SHOPPING LIST
+
+        let shoppingItems = ["Milk", "Bread", "Eggs"];
+
+        localStorage.setItem("shoppingList", JSON.stringify(shoppingItems));
+
+        let storedItems = JSON.parse(localStorage.getItem("shoppingList"));
+
+        console.log("TASK 2: SHOPPING LIST");
+        console.log("Second Item:", storedItems[1]);
+
+
+        // TASK 3: REMOVE DATA
+
+        localStorage.setItem("item1", "Laptop");
+        localStorage.setItem("item2", "Mobile");
+        localStorage.setItem("item3", "Tablet");
+
+        // Remove one key-value pair
+        localStorage.removeItem("item2");
+
+        console.log("TASK 3: REMOVE DATA");
+        console.log("Item 1:", localStorage.getItem("item1"));
+        console.log("Item 2:", localStorage.getItem("item2"));
+        console.log("Item 3:", localStorage.getItem("item3"));
+
+
+        // TASK 4: REMEMBER A THEME
+
+        localStorage.setItem("theme", "dark");
+
+        let savedTheme = localStorage.getItem("theme");
+
+        console.log("TASK 4: REMEMBER A THEME");
+        console.log("Saved Theme:", savedTheme);
+
+    </script>
+
+</body>
+</html>

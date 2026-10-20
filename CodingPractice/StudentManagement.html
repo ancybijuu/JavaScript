@@ -1,0 +1,329 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+</head>
+<body>
+
+    <h1>Student Management System</h1>
+    <p>Open the browser console using F12 → Console to view the output.</p>
+
+    <script>
+        // ==========================================
+        // PART 1: BASIC INFORMATION AND VARIABLES
+        // ==========================================
+
+        console.log("===== STUDENT MANAGEMENT SYSTEM =====");
+
+        var studentName = "Anu";
+        let age = 20;
+        const course = "JavaScript";
+
+        let mark1 = 85;
+        let mark2 = 90;
+        let mark3 = 75;
+
+        console.log("Student Name: " + studentName);
+        console.log("Age: " + age);
+        console.log("Course: " + course);
+
+        console.log("Subject 1 Mark: " + mark1);
+        console.log("Subject 2 Mark: " + mark2);
+        console.log("Subject 3 Mark: " + mark3);
+
+
+        // ==========================================
+        // PART 2: DATA TYPES AND TYPE CONVERSION
+        // ==========================================
+
+        console.log("\n===== DATA TYPES =====");
+
+        let student = "Anu";
+        let studentAge = 20;
+        let isPassed = true;
+        let undefinedValue;
+        let emptyValue = null;
+        let studentObject = { name: "Anu" };
+        let studentArray = ["Anu", "Rahul", "Arun"];
+
+        console.log("String Type: " + typeof student);
+        console.log("Number Type: " + typeof studentAge);
+        console.log("Boolean Type: " + typeof isPassed);
+        console.log("Undefined Type: " + typeof undefinedValue);
+        console.log("Null Type: " + typeof emptyValue);
+        console.log("Object Type: " + typeof studentObject);
+        console.log("Array Type: " + typeof studentArray);
+
+        let stringValue = "85";
+        let convertedValue = Number(stringValue);
+
+        console.log("Original String: " + stringValue);
+        console.log("Converted Value: " + (convertedValue + 10));
+        console.log("Converted Type: " + typeof convertedValue);
+
+        let numberValue = 100;
+        let convertedString = String(numberValue);
+
+        console.log("Number Converted to String: " + convertedString);
+        console.log("Converted String Type: " + typeof convertedString);
+
+        console.log("Boolean Conversion: " + Boolean(1));
+
+
+        // ==========================================
+        // PART 3: CONDITIONAL STATEMENTS
+        // ==========================================
+
+        console.log("\n===== RESULT AND GRADE =====");
+
+        let totalMarks = mark1 + mark2 + mark3;
+        let averageMarks = totalMarks / 3;
+        let result;
+        let grade;
+
+        if (averageMarks >= 90) {
+            grade = "A";
+        } else if (averageMarks >= 75) {
+            grade = "B";
+        } else if (averageMarks >= 60) {
+            grade = "C";
+        } else if (averageMarks >= 40) {
+            grade = "D";
+        } else {
+            grade = "F";
+        }
+
+        if (averageMarks >= 40) {
+            result = "Pass";
+        } else {
+            result = "Fail";
+        }
+
+        console.log("Total Marks: " + totalMarks);
+        console.log("Average Marks: " + averageMarks.toFixed(2));
+        console.log("Result: " + result);
+        console.log("Grade: " + grade);
+
+
+        // ==========================================
+        // PART 4: LOOPS
+        // ==========================================
+
+        console.log("\n===== FOR LOOP =====");
+        console.log("Numbers from 1 to 10:");
+
+        for (let i = 1; i <= 10; i++) {
+            console.log(i);
+        }
+
+        console.log("===== WHILE LOOP =====");
+        console.log("Numbers from 5 to 1:");
+
+        let count = 5;
+
+        while (count >= 1) {
+            console.log(count);
+            count--;
+        }
+
+        console.log("===== TOTAL USING LOOP =====");
+
+        let loopTotal = 0;
+        let studentMarks = [mark1, mark2, mark3];
+
+        for (let i = 0; i < studentMarks.length; i++) {
+            loopTotal = loopTotal + studentMarks[i];
+        }
+
+        console.log("Total Marks: " + loopTotal);
+
+
+        // ==========================================
+        // PART 5: ARRAYS
+        // ==========================================
+
+        console.log("\n===== ARRAYS =====");
+
+        let subjects = ["JavaScript", "Python", "Database"];
+        let marks = [85, 90, 75];
+
+        console.log("Subjects:");
+
+        for (let i = 0; i < subjects.length; i++) {
+            console.log(subjects[i]);
+        }
+
+        let arrayTotal = 0;
+
+        for (let i = 0; i < marks.length; i++) {
+            arrayTotal += marks[i];
+        }
+
+        console.log("Total Marks: " + arrayTotal);
+
+        let highestMark = marks[0];
+
+        for (let i = 1; i < marks.length; i++) {
+            if (marks[i] > highestMark) {
+                highestMark = marks[i];
+            }
+        }
+
+        console.log("Highest Mark: " + highestMark);
+
+        subjects.push("HTML");
+
+        console.log("Subjects after adding one subject:");
+
+        for (let i = 0; i < subjects.length; i++) {
+            console.log(subjects[i]);
+        }
+
+
+        // ==========================================
+        // PART 6: FUNCTIONS
+        // ==========================================
+
+        console.log("\n===== FUNCTIONS =====");
+
+        function calculateTotal(marks) {
+            let total = 0;
+
+            for (let i = 0; i < marks.length; i++) {
+                total += marks[i];
+            }
+
+            return total;
+        }
+
+        function calculateAverage(marks) {
+            if (marks.length === 0) {
+                return 0;
+            }
+
+            return calculateTotal(marks) / marks.length;
+        }
+
+        function checkResult(average) {
+            if (average >= 40) {
+                return "Pass";
+            } else {
+                return "Fail";
+            }
+        }
+
+        function findGrade(average) {
+            if (average >= 90) {
+                return "A";
+            } else if (average >= 75) {
+                return "B";
+            } else if (average >= 60) {
+                return "C";
+            } else if (average >= 40) {
+                return "D";
+            } else {
+                return "F";
+            }
+        }
+
+        let functionTotal = calculateTotal(marks);
+        let functionAverage = calculateAverage(marks);
+        let functionResult = checkResult(functionAverage);
+        let functionGrade = findGrade(functionAverage);
+
+        console.log("Function Total: " + functionTotal);
+        console.log("Function Average: " + functionAverage.toFixed(2));
+        console.log("Function Result: " + functionResult);
+        console.log("Function Grade: " + functionGrade);
+
+
+        // ==========================================
+        // PART 7: OBJECTS
+        // ==========================================
+
+        console.log("\n===== STUDENT OBJECT =====");
+
+        let studentDetails = {
+            name: studentName,
+            age: age,
+            course: course,
+            subjects: ["JavaScript", "Python", "Database"],
+            marks: [85, 90, 75]
+        };
+
+        console.log("Student Name: " + studentDetails.name);
+        console.log("Student Course: " + studentDetails.course);
+
+        console.log("Subject Marks:");
+
+        for (let i = 0; i < studentDetails.marks.length; i++) {
+            console.log(studentDetails.marks[i]);
+        }
+
+        // Update age
+        studentDetails.age = 21;
+
+        // Add new property
+        studentDetails.city = "Kollam";
+
+        console.log("Complete Student Information:");
+        console.log("Name: " + studentDetails.name);
+        console.log("Age: " + studentDetails.age);
+        console.log("Course: " + studentDetails.course);
+        console.log("Subjects: " + studentDetails.subjects);
+        console.log("Marks: " + studentDetails.marks);
+        console.log("City: " + studentDetails.city);
+
+
+        // ==========================================
+        // BONUS: THREE STUDENTS
+        // ==========================================
+
+        console.log("\n===== BONUS: MULTIPLE STUDENTS =====");
+
+        let students = [
+            {
+                name: "Anu",
+                marks: [85, 90, 75]
+            },
+            {
+                name: "Rahul",
+                marks: [65, 70, 60]
+            },
+            {
+                name: "Arun",
+                marks: [30, 35, 25]
+            }
+        ];
+
+        let passedStudents = 0;
+        let failedStudents = 0;
+
+        for (let i = 0; i < students.length; i++) {
+            let currentStudent = students[i];
+            let average = calculateAverage(currentStudent.marks);
+            let studentResult = checkResult(average);
+
+            console.log("Student Name: " + currentStudent.name);
+            console.log("Average Mark: " + average.toFixed(2));
+            console.log("Result: " + studentResult);
+
+            if (studentResult === "Pass") {
+                passedStudents++;
+            } else {
+                failedStudents++;
+            }
+        }
+
+        console.log("Total Students: " + students.length);
+        console.log("Students Passed: " + passedStudents);
+        console.log("Students Failed: " + failedStudents);
+
+        console.log("\n===== PROJECT COMPLETED =====");
+    </script>
+
+</body>
+</html>

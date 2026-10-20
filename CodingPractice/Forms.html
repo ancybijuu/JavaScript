@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Form Validation Tasks</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f4f7;
+            padding: 20px;
+        }
+
+        .form-section {
+            background-color: white;
+            max-width: 450px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+
+        input {
+            width: 95%;
+            padding: 10px;
+            margin: 8px 0 15px;
+        }
+
+        button {
+            padding: 10px 18px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .message {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 style="text-align: center;">JavaScript Form Validation</h1>
+
+    <!-- Task 1: Name Validation -->
+    <div class="form-section">
+        <h2>Task 1: Name Validation</h2>
+
+        <form id="nameForm">
+            <label for="name">Enter Name:</label>
+            <input type="text" id="name" placeholder="Enter your name">
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <p id="nameMessage" class="message"></p>
+    </div>
+
+    <!-- Task 2: Email Validation -->
+    <div class="form-section">
+        <h2>Task 2: Email Validation</h2>
+
+        <form id="emailForm">
+            <label for="email">Enter Email:</label>
+            <input type="text" id="email" placeholder="example@gmail.com">
+
+            <button type="submit">Validate Email</button>
+        </form>
+
+        <p id="emailMessage" class="message"></p>
+    </div>
+
+    <!-- Task 3: Password Validation -->
+    <div class="form-section">
+        <h2>Task 3: Password Validation</h2>
+
+        <form id="passwordForm">
+            <label for="password">Enter Password:</label>
+            <input type="password" id="password" placeholder="Minimum 8 characters">
+
+            <button type="submit">Validate Password</button>
+        </form>
+
+        <p id="passwordMessage" class="message"></p>
+    </div>
+
+    <!-- Task 4: Student Registration -->
+    <div class="form-section">
+        <h2>Task 4: Student Registration</h2>
+
+        <form id="registrationForm">
+            <label for="studentName">Name:</label>
+            <input type="text" id="studentName" placeholder="Enter name">
+
+            <label for="studentEmail">Email:</label>
+            <input type="text" id="studentEmail" placeholder="Enter email">
+
+            <label for="studentAge">Age:</label>
+            <input type="number" id="studentAge" placeholder="Enter age">
+
+            <button type="submit">Register</button>
+        </form>
+
+        <p id="registrationMessage" class="message"></p>
+    </div>
+
+    <script>
+        // Task 1: Name Validation
+        document.getElementById("nameForm").onsubmit = function(event) {
+            event.preventDefault();
+
+            let name = document.getElementById("name").value.trim();
+            let message = document.getElementById("nameMessage");
+
+            if (name === "") {
+                message.textContent = "Name is required!";
+                message.style.color = "red";
+            } else {
+                message.textContent = "Welcome, " + name + "!";
+                message.style.color = "green";
+            }
+        };
+
+        // Task 2: Email Validation
+        document.getElementById("emailForm").onsubmit = function(event) {
+            event.preventDefault();
+
+            let email = document.getElementById("email").value.trim();
+            let message = document.getElementById("emailMessage");
+
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (email === "") {
+                message.textContent = "Email is required!";
+                message.style.color = "red";
+            } else if (!emailPattern.test(email)) {
+                message.textContent = "Please enter a valid email address!";
+                message.style.color = "red";
+            } else {
+                message.textContent = "Valid email!";
+                message.style.color = "green";
+            }
+        };
+
+        // Task 3: Password Validation
+        document.getElementById("passwordForm").onsubmit = function(event) {
+            event.preventDefault();
+
+            let password = document.getElementById("password").value;
+            let message = document.getElementById("passwordMessage");
+
+            if (password.length < 8) {
+                message.textContent = "Password must contain at least 8 characters!";
+                message.style.color = "red";
+            } else {
+                message.textContent = "Password accepted!";
+                message.style.color = "green";
+            }
+        };
+
+        // Task 4: Student Registration
+        document.getElementById("registrationForm").onsubmit = function(event) {
+            event.preventDefault();
+
+            let name = document.getElementById("studentName").value.trim();
+            let email = document.getElementById("studentEmail").value.trim();
+            let age = document.getElementById("studentAge").value;
+            let message = document.getElementById("registrationMessage");
+
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (name === "") {
+                message.textContent = "Name is required!";
+                message.style.color = "red";
+            } else if (email === "") {
+                message.textContent = "Email is required!";
+                message.style.color = "red";
+            } else if (!emailPattern.test(email)) {
+                message.textContent = "Please enter a valid email address!";
+                message.style.color = "red";
+            } else if (age.trim() === "") {
+                message.textContent = "Age is required!";
+                message.style.color = "red";
+            } else if (Number(age) <= 0 || !Number.isInteger(Number(age))) {
+                message.textContent = "Please enter a valid age!";
+                message.style.color = "red";
+            } else {
+                message.textContent = "Registration successful!";
+                message.style.color = "green";
+            }
+        };
+    </script>
+
+</body>
+</html>

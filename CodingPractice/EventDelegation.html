@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List</title>
+</head>
+<body>
+
+    <h1>Student List</h1>
+
+    <div id="studentList">
+        <button>Student 1</button>
+        <button>Student 2</button>
+        <button>Student 3</button>
+    </div>
+
+    <script>
+        // Select the parent div
+        let studentList = document.getElementById("studentList");
+
+        // Attach only one click event listener to the parent
+        studentList.addEventListener("click", function(event) {
+
+            // Identify the clicked button
+            if (event.target.tagName === "BUTTON") {
+                console.log(event.target.textContent + " selected");
+            }
+        });
+
+        // Create the fourth button dynamically
+        let fourthButton = document.createElement("button");
+
+        fourthButton.textContent = "Student 4";
+
+        // Add the fourth button inside the parent div
+        studentList.appendChild(fourthButton);
+    </script>
+
+</body>
+</html>

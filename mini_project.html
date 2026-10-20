@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Quiz App</title>
+</head>
+<body>
+
+<script>
+    console.log("********** JAVASCRIPT QUIZ APP **********");
+
+    const questions = [
+        {
+            question: "What is 10 + 5?",
+            options: ["105", "15", "50", "5"],
+            answer: 2
+        },
+        {
+            question: "Which keyword declares a variable?",
+            options: ["let", "print", "show", "display"],
+            answer: 1
+        },
+        {
+            question: "Which language is used for web development?",
+            options: ["HTML", "JavaScript", "CSS", "All of these"],
+            answer: 4
+        },
+        {
+            question: "Which loop repeats while a condition is true?",
+            options: ["if", "while", "switch", "break"],
+            answer: 2
+        },
+        {
+            question: "Which method adds an item to an array?",
+            options: ["pop()", "push()", "remove()", "delete()"],
+            answer: 2
+        }
+    ];
+
+    let score = 0;
+
+    for (let i = 0; i < questions.length; i++) {
+
+        console.log("\nQuestion " + (i + 1));
+        console.log(questions[i].question);
+
+        let message = "";
+
+        for (let j = 0; j < 4; j++) {
+            console.log((j + 1) + ". " + questions[i].options[j]);
+            message += (j + 1) + ". " + questions[i].options[j] + "\n";
+        }
+
+        let userAnswer = Number(
+            prompt(questions[i].question + "\n\n" + message + "\nEnter option (1-4):")
+        );
+
+        if (userAnswer === questions[i].answer) {
+            console.log("Your answer: " + questions[i].options[userAnswer - 1]);
+            console.log("Correct Answer!");
+            score++;
+        } else {
+            console.log("Your answer: " + (questions[i].options[userAnswer - 1] || "Invalid choice"));
+            console.log("Wrong Answer!");
+            console.log("Correct answer: " + questions[i].options[questions[i].answer - 1]);
+        }
+    }
+
+    console.log("\n===== QUIZ RESULT =====");
+    console.log("Total Questions:", questions.length);
+    console.log("Correct Answers:", score);
+    console.log("Incorrect Answers:", questions.length - score);
+    console.log("Final Score:", score + "/" + questions.length);
+    console.log("Percentage:", (score / questions.length) * 100 + "%");
+
+</script>
+
+</body>
+</html>
